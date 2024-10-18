@@ -1,0 +1,82 @@
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 0;
+  max-width: 1230px;
+  margin: 0 auto;
+}
+
+.feed-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 12px;
+}
+
+.t-single-sd-card {
+  background-color: var(--placeholder);
+  border: 1px solid var(--placeholder-border);
+  width: 300px;
+  height: 304px;
+  border-radius: 24px;
+}
+
+.t-double-sd-card {
+  background-color: var(--placeholder);
+  border: 1px solid var(--placeholder-border);
+  width: 100%;
+  height: 608px;
+  border-radius: 24px;
+}
+
+.feed-header {
+  width: 100%;
+  max-width: 1236px;
+  margin-inline: auto;
+  font-weight: 600;
+  font-size: 19px;
+}
+
+.feed-row:nth-child(even) :first-child,
+.feed-row:nth-child(odd) :last-child {
+  display: none;
+}
+
+@media only screen and (max-width: 1256px) {
+  .feed-row:nth-child(even) :nth-child(2),
+  .feed-row:nth-child(odd) :nth-child(2) {
+    display: none;
+  }
+
+  .feed {
+    max-width: 924px;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .feed-row:nth-child(even) :nth-child(2),
+  .feed-row:nth-child(odd) :nth-child(2) {
+    display: block;
+  }
+
+  .feed-row:nth-child(odd) :first-child,
+  .feed-row:nth-child(even) :last-child {
+    display: none;
+  }
+
+  .feed {
+    max-width: 612px;
+  }
+}
+
+@media only screen and (max-width: 645px) {
+  .feed-row:nth-child(even) :nth-child(2),
+  .feed-row:nth-child(odd) :nth-child(2) {
+    display: none;
+  }
+
+  .feed {
+    max-width: 300px;
+  }
+}

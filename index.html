@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Prototype Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/segoe-ui-variable-static-display" rel="stylesheet">
+    <link rel="icon" href="assets/favicon.svg">
+    <link rel="stylesheet" type="text/css" href="css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="css/core-styles.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/search.css">
+    <link rel="stylesheet" type="text/css" href="css/hero.css">
+    <link rel="stylesheet" type="text/css" href="css/infopane.css">
+    <link rel="stylesheet" type="text/css" href="css/carousel.css">
+    <link rel="stylesheet" type="text/css" href="css/greeting.css">
+    <link rel="stylesheet" type="text/css" href="css/feed.css">
+</head>
+
+<body>
+    <div class="background-grad"></div>
+    <header>
+        <img class="logo" src="/assets/logo.svg" alt="Microsoft Logo">
+        <button id="dark-mode" class="blur account-btn" aria-label="Toggle dark mode" onclick="toggleDarkMode()">
+            <img class="account-img" src="/assets/account.jpeg" alt="Made by Latchman">
+        </button>
+    </header>
+
+
+    <div class="search-wrapper blur">
+        <input class="search" type="search" placeholder="Search or chat with Copilot">
+        <img class="mic-img" src="assets/mic.svg" alt="">
+    </div>
+
+    <div class="top">
+
+        <!-- <div class="greeting">
+            <img class="copilot" src="/assets/copilot.svg" alt="Copilot Logo">
+            <h2 class="greeting-text">Let's get ready for today</h2>
+        </div> -->
+
+
+        <template id="slides">
+            <div class="carousel__video">
+                <div class="inactive slide-switch">
+                    <div class="slide-text-wrapper">
+                        <p class="slide-text"></p>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <div class="hero">
+
+            <div class="hero-text">
+                <div class="greeting">
+                    <img class="copilot" src="/assets/copilot.svg" alt="Copilot Logo">
+                    <h2 class="greeting-text">Let's get ready for today</h2>
+                </div>
+
+                <p>The <a href="">Washington State Fair</a> is offering free admission this weekend! Tickets are going
+                    fast, so <a href="">reserve yours</a> now.</p>
+
+                <div class="greeting-footer">
+                    <button>What is this fair known for</button>
+                    <button>Other free events this weekend</button>
+                </div>
+
+
+            </div>
+
+            <div class="carousel">
+                <div id="carousel" class="carousel__content"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="feed">
+        <div class="feed-row">
+            <div class="t-single-sd-card"></div>
+            <div class="t-single-sd-card"></div>
+            <div class="t-single-sd-card"></div>
+            <div class="t-single-sd-card"></div>
+            <div class="t-single-sd-card"></div>
+        </div>
+        <div class="feed-row">
+            <div class="t-single-sd-card"></div>
+            <div class="t-single-sd-card"></div>
+            <div class="t-single-sd-card"></div>
+            <div class="t-single-sd-card"></div>
+            <div class="t-single-sd-card"></div>
+        </div>
+        <div class="feed-row">
+            <div class="t-double-sd-card"></div>
+            <div class="t-double-sd-card"></div>
+        </div>
+        <div class="feed-row">
+            <div class="t-single-sd-card"></div>
+            <div class="t-single-sd-card"></div>
+            <div class="t-single-sd-card"></div>
+            <div class="t-single-sd-card"></div>
+            <div class="t-single-sd-card"></div>
+        </div>
+        <div class="feed-row">
+            <div class="t-single-sd-card"></div>
+            <div class="t-single-sd-card"></div>
+            <div class="t-single-sd-card"></div>
+            <div class="t-single-sd-card"></div>
+            <div class="t-single-sd-card"></div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+
+
+<script>
+    let slidesTemplate = document.getElementById("slides");
+    let carousel = document.getElementById("carousel");
+    let currentVideo = 0;
+    const carouselData = [];
+    const positions = {
+        0: "tertiary tertiary-left",
+        1: "secondary secondary-left",
+        2: "main",
+        3: "secondary secondary-right",
+        4: "tertiary tertiary-right"
+    };
+
+    const slideData = [
+        { text: "Microsoft’s 343 Industries rebrands as Halo Studios", image: "url('assets/1.png')" },
+        { text: "Lewis Hamilton hints at Mercedes optimism over upgrade at F1 US Grand Prix", image: "url('assets/2.png')" },
+        { text: "What the Mariners can learn from remaining playoff teams", image: "url('assets/3.png')" },
+        { text: "Apple’s iPhone 16 is selling 20% faster in China than its predecessor", image: "url('assets/4.png')" },
+        { text: "AWS CEO says most staff he's spoken with are 'excited' about RTO", image: "url('assets/5.png')" }
+    ];
+
+    function createSlides(data) {
+        for (let i = 0; i < data.length; i++) {
+            const slide = slidesTemplate.content.cloneNode(true);
+            const curr = {
+                position: positions[i],
+                active: false,
+            };
+            carouselData.push(curr);
+            const slideSwitch = slide.querySelector(".slide-switch");
+            slideSwitch.addEventListener("click", () => {
+                changeSlide(0, curr.position);
+            });
+
+            const slideText = slide.querySelector(".slide-text");
+            slideText.textContent = data[i].text;
+            // const slideVideo = slide.querySelector(".carousel__video");
+            slideSwitch.style.backgroundImage = data[i].image;
+            slideSwitch.style.backgroundSize = 'cover';
+            slideSwitch.style.backgroundPosition = 'center';
+
+            carousel.appendChild(slide);
+        }
+    };
+
+    function updateDom() {
+        const slides = Array.from(carousel.querySelectorAll(".carousel__video"));
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].className = `${carouselData[i].position} carousel__video`;
+        }
+    }
+
+    function changeSlide(direction, position) {
+        if (direction == "left") {
+            currentVideo--;
+            if (currentVideo < 0) {
+                currentVideo = 4;
+            }
+        } else if (direction == "right") {
+            currentVideo++;
+            if (currentVideo > 4) {
+                currentVideo = 0;
+            }
+        } else {
+            switch (position) {
+                case 'secondary secondary-right':
+                    changeSlide('left');
+                    break;
+                case 'secondary secondary-left':
+                    changeSlide('right');
+                    break;
+                case 'tertiary tertiary-right':
+                    changeSlide('left');
+                    changeSlide('left');
+                    break;
+                case 'tertiary tertiary-left':
+                    changeSlide('right');
+                    changeSlide('right');
+                    break;
+            }
+        }
+
+        carouselData.forEach((video, i) => {
+            video.active = false;
+            let newIndex = i + currentVideo;
+            if (newIndex > 4) {
+                newIndex %= 5;
+            }
+            video.position = positions[newIndex];
+        });
+
+        updateDom();
+    }
+
+    createSlides(slideData);
+    updateDom();
+</script>
+
+
+<script>
+    let style = document.createElement('style');
+    let darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    let appearance = localStorage.getItem("appearance") ?? "system";
+    let systemDarkMode = darkModeQuery.matches;
+
+    const updateAppearance = () => {
+        localStorage.setItem("appearance", appearance);
+        if (appearance === "system" ? systemDarkMode : appearance === "dark") {
+            appearance = "dark";
+            document.body.classList.add("dark");
+            style.innerHTML = ':root {color-scheme: dark;}';
+            document.head.appendChild(style);
+        } else {
+            document.body.classList.remove("dark");
+            style.innerHTML = ':root {color-scheme: light;}';
+            document.head.appendChild(style);
+        }
+    };
+
+    darkModeQuery.addEventListener("change", (m) => { systemDarkMode = m.matches; updateAppearance(); });
+    updateAppearance();
+
+    const toggleDarkMode = (e) => { appearance = appearance === "dark" ? "light" : "dark"; updateAppearance(); };
+</script>
+
+</html>

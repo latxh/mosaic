@@ -1,0 +1,107 @@
+.carousel {
+  width: 624px;
+}
+
+.carousel__content {
+  flex: 0 0 80%;
+  height: 400px;
+  position: relative;
+}
+.carousel__video {
+  width: 300px;
+  height: 400px;
+  position: absolute;
+  transition: all 0.5s;
+}
+.carousel__video .inactive {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  box-shadow: 0px 8px 32px 0 var(--search-shadow);
+  border-radius: 24px;
+  transition: all 0.2s ease-out;
+}
+.carousel__video .inactive:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+  background-color: black;
+}
+.carousel__video.main {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+.carousel__video.main .inactive + img {
+  transition: none;
+}
+.carousel__video.main .inactive:hover {
+  cursor: cursor;
+  transform: scale(1);
+  background-color: black;
+}
+.carousel__video.main .inactive:hover + img {
+  transform: scale(1);
+}
+.carousel__video.hidden {
+  display: none;
+}
+.carousel__video.secondary {
+  width: 270px;
+  height: 360px;
+  z-index: 2;
+}
+.carousel__video.secondary-left {
+  top: 50%;
+  left: 20%;
+  transform: translate(-20%, -50%);
+}
+.carousel__video.secondary-right {
+  top: 50%;
+  left: 80%;
+  transform: translate(-80%, -50%);
+}
+.carousel__video.tertiary {
+  width: 225px;
+  height: 300px;
+  z-index: 1;
+}
+.carousel__video.tertiary-left {
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+}
+.carousel__video.tertiary-right {
+  top: 50%;
+  left: 100%;
+  transform: translate(-100%, -50%);
+}
+
+.slide-text-wrapper {
+  border-radius: 24px;
+  color: var(--immersive-font);
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+  padding: 20px;
+  background: linear-gradient(to bottom, #00000000, #000);
+  transition: all 0.5s;
+}
+
+.slide-text {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  opacity: 0;
+  width: 260px;
+  color: var(--immersive-font);
+  transition: all 0.5s;
+}
+
+.main .slide-text {
+  opacity: 1;
+}
