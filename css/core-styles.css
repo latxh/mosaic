@@ -35,7 +35,7 @@
   --pill-hover: rgba(255, 255, 255, 1);
 
   --placeholder: rgba(255, 255, 255, 0.8);
-  --placeholder-border: #eaedf0;
+  --placeholder-border: rgb(0, 0, 0, 0.1);
 }
 
 .dark {
@@ -66,6 +66,9 @@
 
   --pill: rgba(0, 0, 0, 0.3);
   --pill-hover: rgba(0, 0, 0, 0.6);
+
+  --placeholder: rgba(0, 0, 0, 0.3);
+  --placeholder-border: rgb(245, 245, 245, 0.2);
 }
 
 ::selection {
