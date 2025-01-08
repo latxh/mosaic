@@ -43,6 +43,8 @@
 }
 
 .action-btn {
+  height: 36px;
+  width: 36px;
   border-radius: 12px;
   background-color: var(--search-box);
 }
@@ -66,10 +68,18 @@
 }
 
 .content-img {
-  width: 100%;
   aspect-ratio: 1.6 / 1;
   object-fit: cover;
   border-radius: 12px;
+  background-image: url("../assets/content.jpg");
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transition: all 0.25s cubic-bezier(.4,0,.2,1);
+}
+
+.t-single-sd-card:hover .content-img {
+  background-size: 110% 110%;
 }
 
 .attr {
