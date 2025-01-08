@@ -10,13 +10,13 @@
     var(--grad-mid),
     var(--background)
   ); */
-  background-image: url("/assets/KumoSkyL.jpg");
+  background-image: url("../assets/KumoSkyL.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .dark .background-grad {
-  background-image: url("/assets/KumoSkyD.jpg");
+  background-image: url("../assets/KumoSkyD.jpg");
 }
 
 .background-grad::before {
