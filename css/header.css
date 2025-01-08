@@ -2,11 +2,33 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: -2;
+  height: 100vh;
+  width: 100%;
+  /* background: linear-gradient(
+    var(--grad-start),
+    var(--grad-mid),
+    var(--background)
+  ); */
+  background-image: url("/assets/KumoSkyL.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.dark .background-grad {
+  background-image: url("/assets/KumoSkyD.jpg");
+}
+
+.background-grad::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
   z-index: -1;
   height: 100vh;
   width: 100%;
   background: linear-gradient(
-    var(--grad-start),
+    var(--grad-start) 60%,
     var(--grad-mid),
     var(--background)
   );
@@ -23,7 +45,7 @@ header {
 }
 
 .account-btn {
-  border-radius: 50px;
+  border-radius: 12px;
 }
 
 .account-img {
@@ -31,6 +53,28 @@ header {
   height: 32px;
   border-radius: 50px;
   filter: unset;
+}
+
+.gear-img {
+  transition: all 0.2s;
+}
+
+.gear-btn:hover .gear-img {
+  transform: rotate(-20deg);
+}
+
+.gear-btn:active .gear-img {
+  transform: rotate(60deg);
+}
+
+.gear-img {
+  width: 20px;
+  height: 20px;
+  filter: none;
+}
+
+.dark .gear-img {
+  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(106%) contrast(105%);
 }
 
 .logo {

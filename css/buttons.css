@@ -20,14 +20,14 @@ button {
   justify-content: center;
   align-items: center;
   border: none;
-  border-bottom: 1px solid var(--button-shadow);
+  /* border-bottom: 1px solid var(--button-shadow); */
   background-color: var(--button);
   transition: background-color 0.2s;
 }
 
 .dark button {
   border-bottom: none;
-  border-top: 1px solid var(--button-shadow);
+  /* border-top: 1px solid var(--button-shadow); */
 }
 
 button svg {

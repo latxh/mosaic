@@ -1,7 +1,7 @@
 .feed {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 24px;
   padding: 12px 0;
   max-width: 1230px;
   margin: 0 auto;
@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 12px;
+  gap: 24px;
 }
 
 .t-single-sd-card {
@@ -20,14 +20,139 @@
   width: 300px;
   height: 304px;
   border-radius: 24px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.t-single-sd-card:hover .actions {
+  opacity: 1;
+}
+
+.actions {
+  opacity: 0;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  transition: all 0.2s;
+}
+
+.action-btn {
+  border-radius: 12px;
+  background-color: var(--search-box);
+}
+
+.action-btn:hover {
+  background-color: var(--search-active);
+}
+
+.more-img {
+  width: 20px;
+  height: 20px;
+  filter: none;
+}
+
+.dark .more-img {
+  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(106%) contrast(105%);
+}
+
+.content-card {
+  cursor: pointer;
+}
+
+.content-img {
+  width: 100%;
+  aspect-ratio: 1.6 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.attr {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.attr p {
+  font-size: 14px;
+  margin: 0;
+  font-weight: 400;
+}
+
+.t-single-sd-card h2 {
+  margin-bottom: 12px;
+}
+
+.attr img {
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
 }
 
 .t-double-sd-card {
   background-color: var(--placeholder);
   border: 1px solid var(--placeholder-border);
   width: 100%;
-  height: 608px;
+  height: 480px;
   border-radius: 24px;
+  display: flex;
+  cursor: pointer;
+}
+
+.rail {
+  height: 100%;
+  width: 400px;
+  padding: 32px;
+  border-radius: 24px 0 0 24px;
+  background-color: var(--gem-rail);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rail li {
+  margin-bottom: 8px;
+}
+
+.gem-img {
+  flex: 1;
+  height: 100%;
+  border-radius: 0 24px 24px 0;
+  background-image: url("/assets/GemImg.jpg");
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transition: all 0.25s cubic-bezier(.4,0,.2,1);
+}
+
+.gem-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gem-chevron {
+  margin-top: 1px;
+  width: 20px;
+  height: 20px;
+  transition: all 0.25s;
+}
+
+.dark .gem-chevron {
+  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(280deg) brightness(106%) contrast(105%);
+}
+
+.t-double-sd-card:hover .gem-img {
+  background-size: 110% 110%;
+}
+
+.t-double-sd-card:hover .gem-chevron {
+  transform: translateX(4px);
 }
 
 .feed-header {
@@ -38,8 +163,8 @@
   font-size: 19px;
 }
 
-.feed-row:nth-child(even) :first-child,
-.feed-row:nth-child(odd) :last-child {
+.feed-row:nth-child(even) > div:first-child,
+.feed-row:nth-child(odd) > div:last-child {
   display: none;
 }
 

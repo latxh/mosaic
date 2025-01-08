@@ -20,16 +20,18 @@
   --button-shadow: rgb(0, 0, 0, 0.1);
 
   --search-box: #f6f9fc;
+  --search-active: #fff;
   --search-wrapper: rgba(255, 255, 255, 0.6);
   --search-shadow: rgba(0, 30, 68, 0.1);
   --search-inner: rgba(0, 30, 68, 0.1);
 
-  --grad-start: #edf3f7;
-  --grad-mid: #fef5e6;
+  --grad-start: #ffffff66;
+  --grad-mid: #ffffffe6;
 
   --greeting-font: #284052;
   --greeting-link: #0057ff;
   --greeting-hover: #1a5294;
+  --gem-rail: #ECF6FF;
 
   --pill: rgba(255, 255, 255, 0.6);
   --pill-hover: rgba(255, 255, 255, 1);
@@ -52,17 +54,19 @@
   --button-shadow: rgb(255, 255, 255, 0.15);
 
   --search-box: #26292e;
+  --search-active: #2f333a;
   --search-wrapper: rgba(0, 0, 0, 0.6);
   --search-shadow: rgba(0, 0, 0, 0.4);
   --search-inner: rgba(0, 0, 0, 0.2);
 
-  --grad-start: #161a33;
-  --grad-mid: #251c33;
+  --grad-start: #0d0d0d33;
+  --grad-mid: #0d0d0d99;
 
   --greeting-font: #c3c8ce;
   /* a7c9fc */
   --greeting-link: #6dadff;
   --greeting-hover: #0083fc;
+  --gem-rail: #1B1D1F;
 
   --pill: rgba(0, 0, 0, 0.3);
   --pill-hover: rgba(0, 0, 0, 0.6);
