@@ -3,8 +3,12 @@
   flex-direction: column;
   gap: 24px;
   padding: 12px 0;
-  max-width: 1230px;
+  max-width: 1272px;
   margin: 0 auto;
+}
+
+.feed-bot {
+  padding-bottom: 200px;
 }
 
 .feed-row {
@@ -131,13 +135,21 @@
 
 .gem-img {
   flex: 1;
-  height: 100%;
   border-radius: 0 24px 24px 0;
   background-image: url("../assets/GemImg.jpg");
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   transition: all 0.25s cubic-bezier(.4,0,.2,1);
+}
+
+.gem-alt {
+  background-color: var(--gem-rail);
+}
+
+.gem-img-alt {
+  margin: 12px;
+  border-radius: 24px;
 }
 
 .gem-footer {

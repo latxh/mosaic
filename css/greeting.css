@@ -5,6 +5,12 @@
   gap: 24px;
 }
 
+.gem-alt .hero-text {
+  font-family: "Segoe UI Variable Static Text", "Segoe UI", Tahoma, Geneva,
+  Verdana, sans-serif;
+  font-weight: 600;
+}
+
 .hero-text {
   margin-bottom: 20px;
   font-family: "Lora", serif;
